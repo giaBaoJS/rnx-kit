@@ -51,6 +51,7 @@ describe("findWorkspacePackages", () => {
     setFixture("pnpm");
 
     const result = (await findWorkspacePackages()).sort();
+    equal(result.length, packages.length);
     for (let i = 0; i < result.length; ++i) {
       match(result[i], packages[i]);
     }
@@ -60,6 +61,7 @@ describe("findWorkspacePackages", () => {
     setFixture("pnpm");
 
     const result = findWorkspacePackagesSync().sort();
+    equal(result.length, packages.length);
     for (let i = 0; i < result.length; ++i) {
       match(result[i], packages[i]);
     }
